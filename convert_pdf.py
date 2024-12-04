@@ -7,7 +7,7 @@ def convert_word_to_pdf(soffice_path, word_file_path, output_dir):
     response = subprocess.run(
         conv_cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE
     )
-    files = os.listdir("/tmp")
+    files = os.listdir("tmp")
     print("After conversion:: Files in /tmp directory:", files)
     if response.returncode != 0:
         response = subprocess.run(

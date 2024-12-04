@@ -14,12 +14,12 @@ def lambda_handler():
     bucket = "surmountpublicschool"
     key = "homework/01-12-24.docx"
 
-    download_path = "/tmp/output.docx"
+    download_path = "tmp/output.docx"
     tmp_path = "/tmp"
 
     download_from_s3(bucket, key, download_path)
 
-    soffice_path = "/instdir/program/soffice.bin"
+    soffice_path = "instdir/program/soffice.bin"
 
     is_converted = convert_word_to_pdf(soffice_path, "/tmp/output.docx", "/tmp/")
 
@@ -28,3 +28,6 @@ def lambda_handler():
         return {"statusCode": 200, "response": "UPLOAD HO GYI FINALLY"}
 
     return {"statusCode": 400, "response": "ERROR UPLOADING FILE"}
+
+
+lambda_handler()
